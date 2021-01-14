@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo');
+
+html, body{box-sizing: border-box;margin: 0; padding:0; overflow-x: hidden;}
+
+.App{
+  width: 100vw;
+  height: 100vh;
+  max-width:100%;
+  font-family: 'Heebo', sans-serif;
+
+  & > .page{
+    width: 100%;
+  }
+}

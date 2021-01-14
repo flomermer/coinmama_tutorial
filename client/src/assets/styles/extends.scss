@@ -1,0 +1,19 @@
+
+%card {
+  border: 1px solid #eee;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  background: $light-blue-2;
+  color: $primary-blue;
+
+  & > header{display: flex; justify-content: space-between; font-size: 1.5em; font-weight: bold;}
+  & header.full-row{text-align: center; background: $primary-blue; margin: 0 -10px; padding: 5px; color: #EEE;}
+
+  &:hover{ //convert colors
+    background: $primary-blue;
+    color: $light-blue-2;
+    cursor: pointer;
+    & header.full-row{background: $light-blue-2; $color: $primary-blue; color: $primary-blue;}
+  }
+}
