@@ -1,6 +1,13 @@
 import axios from 'axios';
-
-const ROOT_URL = (process.env.NODE_ENV==='production') ? 'http://localhost:3000/api' : "http://localhost:3000/api";  //production will be used another url
+const env = {
+  prod: {
+    root_url: 'http://localhost:3000/api'
+  },
+  dev: {
+    root_url: 'http://localhost:3000/api'
+  }
+}
+const ROOT_URL = (process.env.NODE_ENV==='production') ?  env.prod.root_url : env.dev.root_url;
 
 const myAPI = {
   getLatestRates: async () => {

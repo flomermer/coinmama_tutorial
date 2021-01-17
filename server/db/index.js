@@ -53,12 +53,8 @@ const sql = async (sql_str) => {
   })
 }
 
-const initialize = async function(){ //no es6 on purpose! need ref to this(module)
-  await initializeDB(this); //to avoid circular dependency
-}
-
 module.exports = {
-    init,    
+    init,
     close,
     sql
 };

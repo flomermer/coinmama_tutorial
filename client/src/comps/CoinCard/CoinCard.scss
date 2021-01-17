@@ -1,0 +1,18 @@
+@import '../../assets/styles/palette.scss';
+@import '../../assets/styles/extends.scss';
+
+.CoinCard{
+  @extend %card;  
+  width: 30%;
+  & > .sources{
+    margin-top: 20px;
+    & > .source{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0px;
+      font-size: 0.8em;
+      & > div{width: 33.3%; text-align: center;}
+    }
+  }
+}

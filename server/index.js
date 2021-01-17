@@ -23,9 +23,9 @@ const run = async () => {
     await db.init();
     app.listen(config.PORT, () => console.log(`Listening on port ${config.PORT}`));
 
-    console.log(`*** update every: ${config.UPDATE_TIMER_MINUTES} minutes ***`);
-    updateTimer = setInterval(() => ee.emit('updateRates'), 1000*60*config.UPDATE_TIMER_MINUTES); //every ten minue
     ee.on('updateRates', updateRates);
+    console.log(`*** update every: ${config.UPDATE_TIMER_MINUTES} minutes ***`);
+    updateTimer = setInterval(() => ee.emit('updateRates'), 1000*60*config.UPDATE_TIMER_MINUTES); //to set interval timer visit ./config
     ee.emit('updateRates');    //also coin_type_model.add() emit('updateRates') to update new coin rates instead of waiting for timer.
   }catch(e){
     db.close();

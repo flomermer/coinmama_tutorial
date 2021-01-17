@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --legacy-watch --ignore './client/' server/index.js"
+    "dev": "nodemon --legacy-watch --ignore '../client/' index.js"
   },
   "author": "Tomer Flom",
   "license": "ISC",

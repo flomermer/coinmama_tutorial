@@ -3,22 +3,27 @@ version: "3.7"
 services:
   app:
     image: node:12-alpine
-    command: sh -c "yarn install && yarn run dev"
+    container_name: coinmama-app
+    command: sh -c "cd server && yarn install && yarn run dev"
     ports:
       - 3000:3000
     working_dir: /coinmama
     volumes:
       - ./:/coinmama
     environment:
-      MYSQL_HOST: mysql
+      MYSQL_HOST: mydb
       MYSQL_USER: root
       MYSQL_PASSWORD: secret
       MYSQL_DB: coinmama
+    depends_on:
+      - mydb
 
-  mysql:
+  mydb:
     image: mysql:5.7
+    container_name: coinmama-db
     volumes:
       - ./server/db/init:/docker-entrypoint-initdb.d
+      - coinmama-mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: coinmama

@@ -4,7 +4,7 @@ import _ from 'lodash';
 import {connect}            from 'react-redux';
 import {withRouter}         from 'react-router-dom';
 import withLoading          from '../misc/hoc/withLoading';
-import CoinListItem         from './CoinListItem';
+import CoinCard             from '../CoinCard';
 
 const CoinList = (props) => {
   const {className, isLoading, isError, latest_rates, coin_types, history} = props;
@@ -14,9 +14,9 @@ const CoinList = (props) => {
 
   return (
     <div className={`CoinList ${className}`}>
-        {_.map(coin_types, coin => { //map over object keys! lodash do it automatically whether it's an array or an object
-          return  <CoinListItem   className='card' key={coin.coin_sym} coin={coin}
-                                  rates={latest_rates.filter(rate => rate.coin_type_id===coin.coin_id)}
+        {_.map(coin_types, coin => {
+          const filteredRates = latest_rates.filter(rate => rate.coin_type_id===coin.coin_id);
+          return  <CoinCard       key={coin.coin_sym} coin={coin} rates={filteredRates}
                                   onClick={() => history.push(`/history/${coin.coin_sym}`)}
                   />;
         })}

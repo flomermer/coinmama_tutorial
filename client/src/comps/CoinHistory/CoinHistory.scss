@@ -4,13 +4,13 @@
 .CoinHistory{
   & > header{
     display: flex; justify-content: center; align-items: center;
-    & > .CoinListItem{width: 100%;}
+    & > .CoinCard{width: 100%;}
   }
   & > main.history{
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    & .source-history{
+    & .SourceHistory{
       & > header{font-size: 1.3em; color: $primary-blue; text-align: center; margin-bottom: 10px;}
       & .record{
         display: flex;

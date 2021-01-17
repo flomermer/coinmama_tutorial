@@ -6,7 +6,7 @@ const loadingReducer = (state = {}, action) => {
   // not a *_REQUEST / *_SUCCESS /  *_FAILURE actions, so we ignore them
   if (!matches) return state;
 
-  const [, requestName, requestState] = matches;  
+  const [, requestName, requestState] = matches;
   const newState = {
     ...state,
     [requestName]: requestState === 'REQUEST',

@@ -7,7 +7,7 @@ import error                from './error_reducer';
 import loading              from './loading_reducer';
 
 export default combineReducers({
-    curr_fiat,
+    curr_fiat, //in future -> could be set to another fiat -> which will convert all rates according to new_fiat price
     latest_rates,
     coin_types,
     history_rates,
